@@ -18,9 +18,11 @@ import {
 } from 'lucide-react';
 import { MemoryGame } from '@/components/games/MemoryGame';
 import { TicTacToe } from '@/components/games/TicTacToe';
-import { QuizGame } from '@/components/games/QuizGame';
+import { QuizGameExpanded } from '@/components/games/QuizGameExpanded';
 import { IconMatchGame } from '@/components/games/IconMatchGame';
 import { ReactionTimeGame } from '@/components/games/ReactionTimeGame';
+import { HuntBuilder } from '@/components/games/HuntBuilder';
+import { AudioGames } from '@/components/games/AudioGames';
 
 const Index = () => {
   const [activeGame, setActiveGame] = useState<string | null>(null);
@@ -45,11 +47,11 @@ const Index = () => {
     },
     {
       id: 'quiz',
-      title: 'Mega Quiz',
-      description: 'Test your knowledge across multiple topics',
+      title: 'Ultimate Quiz',
+      description: '100+ shuffled questions across 6 categories',
       icon: Lightbulb,
       color: 'accent',
-      component: QuizGame
+      component: QuizGameExpanded
     },
     {
       id: 'iconmatch',
@@ -66,6 +68,22 @@ const Index = () => {
       icon: Timer,
       color: 'info',
       component: ReactionTimeGame
+    },
+    {
+      id: 'hunt',
+      title: 'Hunt Builder',
+      description: 'Create and play custom treasure hunts',
+      icon: Target,
+      color: 'warning',
+      component: HuntBuilder
+    },
+    {
+      id: 'audio',
+      title: 'Audio Games',
+      description: 'Audio-based memory and rhythm challenges',
+      icon: Gamepad2,
+      color: 'secondary',
+      component: AudioGames
     }
   ];
 

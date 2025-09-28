@@ -18,6 +18,7 @@ export const TicTacToe = ({ onScoreUpdate }: TicTacToeProps) => {
   const [playerScore, setPlayerScore] = useState(0);
   const [aiScore, setAiScore] = useState(0);
   const [gameMode, setGameMode] = useState<'human' | 'ai'>('ai');
+  const [moveHistory, setMoveHistory] = useState<{player: 'X' | 'O', position: number, moveNumber: number}[]>([]);
 
   const winningCombinations = [
     [0, 1, 2], [3, 4, 5], [6, 7, 8], // Rows
@@ -41,6 +42,9 @@ export const TicTacToe = ({ onScoreUpdate }: TicTacToeProps) => {
     const newBoard = [...board];
     newBoard[index] = player;
     setBoard(newBoard);
+
+    // Add move to history
+    setMoveHistory(prev => [...prev, { player, position: index, moveNumber: prev.length + 1 }]);
 
     const gameResult = checkWinner(newBoard);
     if (gameResult) {
@@ -129,12 +133,14 @@ export const TicTacToe = ({ onScoreUpdate }: TicTacToeProps) => {
     setBoard(Array(9).fill(null));
     setCurrentPlayer('X');
     setWinner(null);
+    setMoveHistory([]);
   };
 
   const resetScores = () => {
     setPlayerScore(0);
     setAiScore(0);
     onScoreUpdate(0);
+    setMoveHistory([]);
   };
 
   const renderCell = (index: number) => {
@@ -227,6 +233,35 @@ export const TicTacToe = ({ onScoreUpdate }: TicTacToeProps) => {
       <div className="grid grid-cols-3 gap-4 max-w-xs mx-auto mb-8">
         {Array.from({ length: 9 }, (_, index) => renderCell(index))}
       </div>
+
+      {/* Move History */}
+      {moveHistory.length > 0 && (
+        <div className="mb-8">
+          <h3 className="text-lg font-semibold mb-4 text-center">Move History</h3>
+          <div className="bg-muted/50 rounded-lg p-4 max-w-md mx-auto">
+            <div className="grid grid-cols-2 gap-2 max-h-32 overflow-y-auto">
+              {moveHistory.map((move) => (
+                <div
+                  key={move.moveNumber}
+                  className={`text-sm p-2 rounded flex items-center gap-2 ${
+                    move.player === 'X' 
+                      ? 'bg-primary/20 text-primary' 
+                      : 'bg-secondary/20 text-secondary'
+                  }`}
+                >
+                  <span className="font-mono text-xs">#{move.moveNumber}</span>
+                  {move.player === 'X' ? (
+                    <X className="h-3 w-3" />
+                  ) : (
+                    <Circle className="h-3 w-3" />
+                  )}
+                  <span>Position {move.position + 1}</span>
+                </div>
+              ))}
+            </div>
+          </div>
+        </div>
+      )}
 
       {/* Game Controls */}
       <div className="flex gap-4 justify-center">
