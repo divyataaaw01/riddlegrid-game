@@ -269,6 +269,44 @@ export const AudioGames = ({ onScoreUpdate }: AudioGamesProps) => {
           </p>
         </div>
 
+        {/* Instructions Card */}
+        <Card className="p-6 mb-8 bg-primary/5 border-primary/20">
+          <h3 className="text-xl font-bold mb-4 text-center">📖 How to Play Audio Games</h3>
+          
+          <div className="space-y-4 text-sm">
+            <div className="grid grid-cols-1 md:grid-cols-4 gap-3 p-4 bg-background rounded-lg">
+              <div className="text-center">
+                <div className="text-2xl font-bold text-red-500 mb-1">1</div>
+                <div className="text-xs text-muted-foreground">Note: C (261 Hz)</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-blue-500 mb-1">2</div>
+                <div className="text-xs text-muted-foreground">Note: E (329 Hz)</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-green-500 mb-1">3</div>
+                <div className="text-xs text-muted-foreground">Note: G (392 Hz)</div>
+              </div>
+              <div className="text-center">
+                <div className="text-2xl font-bold text-yellow-500 mb-1">4</div>
+                <div className="text-xs text-muted-foreground">Note: C (523 Hz)</div>
+              </div>
+            </div>
+
+            <div className="space-y-3">
+              <div>
+                <strong className="text-primary">🎧 Audio Simon:</strong> Listen to the sound sequence, then repeat it by clicking the numbered buttons in the correct order. Each level adds one more sound!
+              </div>
+              <div>
+                <strong className="text-secondary">🎚️ Frequency Match:</strong> Listen to the target frequency, then adjust the slider to match it. The closer you get, the more points you earn!
+              </div>
+              <div>
+                <strong className="text-accent">🥁 Rhythm Echo:</strong> Listen to the rhythm pattern, then tap the button to recreate the timing. Match the intervals between beats!
+              </div>
+            </div>
+          </div>
+        </Card>
+
         <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
           <Card 
             className="game-card cursor-pointer group"

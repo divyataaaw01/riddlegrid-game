@@ -407,6 +407,17 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
           Create and play custom treasure hunts with clues, puzzles, and hidden secrets!
         </p>
         
+        <Card className="p-6 mb-6 max-w-2xl mx-auto text-left">
+          <h3 className="text-lg font-bold mb-4 text-center">📖 How to Use Hunt Builder</h3>
+          <div className="space-y-3 text-sm text-muted-foreground">
+            <div><strong className="text-foreground">Create:</strong> Click "Create New Hunt" and add your title, description, and levels</div>
+            <div><strong className="text-foreground">Build Levels:</strong> Each level needs a clue/puzzle and an answer. Add hints and locations for extra guidance</div>
+            <div><strong className="text-foreground">Play:</strong> Select any saved hunt and solve the puzzles in order</div>
+            <div><strong className="text-foreground">Score:</strong> Earn 100 points per level (50 if you use a hint)</div>
+            <div><strong className="text-foreground">Complete:</strong> Finish all levels to get a 500 point bonus!</div>
+          </div>
+        </Card>
+        
         <Button onClick={startNewHunt} className="game-button">
           <Plus className="h-4 w-4 mr-2" />
           Create New Hunt

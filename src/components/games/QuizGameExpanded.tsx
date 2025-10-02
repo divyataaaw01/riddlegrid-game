@@ -277,6 +277,18 @@ export const QuizGameExpanded = ({ onScoreUpdate }: QuizGameProps) => {
             Test your knowledge with 10 random questions from our database of 100+!
           </p>
           
+          <Card className="p-6 mb-8 max-w-2xl mx-auto text-left">
+            <h3 className="text-lg font-bold mb-4 text-center">📖 How to Play</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• Choose a category and difficulty level to start</li>
+              <li>• Answer 10 randomly selected questions from 120+ total</li>
+              <li>• Each correct answer earns you points</li>
+              <li>• Questions are shuffled each time you play</li>
+              <li>• Complete all categories to master the quiz!</li>
+              <li>• Track your progress with the category badges</li>
+            </ul>
+          </Card>
+          
           {/* Difficulty Selection */}
           <div className="mb-8">
             <p className="text-sm text-muted-foreground mb-4">Choose difficulty level:</p>

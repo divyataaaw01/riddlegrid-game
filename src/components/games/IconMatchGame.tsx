@@ -135,6 +135,19 @@ export const IconMatchGame = ({ onScoreUpdate }: IconMatchGameProps) => {
             Match all instances of the target icon as fast as you can! 
             Build streaks for bonus points, but avoid wrong clicks!
           </p>
+          
+          <Card className="p-6 mb-8 max-w-lg mx-auto text-left">
+            <h3 className="text-lg font-bold mb-4 text-center">📖 How to Play</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• A target icon will be shown at the top</li>
+              <li>• Click all matching icons in the grid as fast as possible</li>
+              <li>• Build streaks for bonus points (each correct click adds +2 pts per streak)</li>
+              <li>• Wrong clicks break your streak and cost you 3 seconds</li>
+              <li>• Complete rounds to get bonus time</li>
+              <li>• Keep playing until time runs out!</li>
+            </ul>
+          </Card>
+
           <Button onClick={startGame} className="game-button text-lg px-8 py-4">
             <Sparkles className="h-5 w-5 mr-2" />
             Start Game

@@ -124,6 +124,19 @@ export const ReactionTimeGame = ({ onScoreUpdate }: ReactionTimeGameProps) => {
             Test your reflexes! Click as fast as you can when the screen turns green.
             You'll complete {totalRounds} rounds.
           </p>
+          
+          <Card className="p-6 mb-8 max-w-lg mx-auto text-left">
+            <h3 className="text-lg font-bold mb-4 text-center">📖 How to Play</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• Wait for the screen to turn from red to green</li>
+              <li>• Click as fast as you can when it turns green</li>
+              <li>• Don't click too early or you'll get penalized</li>
+              <li>• Complete 5 rounds to see your average reaction time</li>
+              <li>• Under 200ms is lightning fast!</li>
+              <li>• Under 400ms is good, under 600ms is average</li>
+            </ul>
+          </Card>
+
           <Button onClick={startGame} className="game-button text-lg px-8 py-4">
             <Zap className="h-5 w-5 mr-2" />
             Start Test

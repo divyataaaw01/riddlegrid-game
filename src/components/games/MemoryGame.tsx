@@ -148,6 +148,18 @@ export const MemoryGame = ({ onScoreUpdate }: MemoryGameProps) => {
           <p className="text-muted-foreground mb-8 max-w-md mx-auto">
             Flip cards to find matching pairs. Complete all matches to win!
           </p>
+          
+          <Card className="p-6 mb-8 max-w-lg mx-auto text-left">
+            <h3 className="text-lg font-bold mb-4 text-center">📖 How to Play</h3>
+            <ul className="space-y-2 text-sm text-muted-foreground">
+              <li>• Click on cards to flip them over and reveal icons</li>
+              <li>• Find matching pairs of icons</li>
+              <li>• Only 2 cards can be flipped at a time</li>
+              <li>• Match all pairs to win</li>
+              <li>• Complete faster with fewer moves for bonus points!</li>
+            </ul>
+          </Card>
+
           <Button onClick={initializeGame} className="game-button text-lg px-8 py-4">
             <Sparkles className="h-5 w-5 mr-2" />
             Start Game

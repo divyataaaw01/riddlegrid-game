@@ -17,7 +17,6 @@ import {
   Lightbulb
 } from 'lucide-react';
 import { MemoryGame } from '@/components/games/MemoryGame';
-import { TicTacToe } from '@/components/games/TicTacToe';
 import { QuizGameExpanded } from '@/components/games/QuizGameExpanded';
 import { IconMatchGame } from '@/components/games/IconMatchGame';
 import { ReactionTimeGame } from '@/components/games/ReactionTimeGame';
@@ -36,14 +35,6 @@ const Index = () => {
       icon: Brain,
       color: 'primary',
       component: MemoryGame
-    },
-    {
-      id: 'tictactoe',
-      title: 'Tic Tac Toe',
-      description: 'Classic strategy game',
-      icon: Target,
-      color: 'secondary',
-      component: TicTacToe
     },
     {
       id: 'quiz',
