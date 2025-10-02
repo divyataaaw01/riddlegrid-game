@@ -273,13 +273,16 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
   if (isCreating && currentHunt) {
     return (
       <div className="max-w-4xl mx-auto">
-        <div className="text-center mb-8">
-          <div className="text-4xl mb-4">🏗️</div>
-          <h2 className="text-2xl font-bold mb-4">Create Your Hunt</h2>
+        <div className="relative text-center mb-8">
+          <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-yellow-500/20 rounded-3xl blur-3xl -z-10" />
+          <div className="relative bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-6 border-2 border-amber-300/50 dark:border-amber-700/50">
+            <div className="text-4xl mb-4">🏗️</div>
+            <h2 className="text-2xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">Create Your Hunt</h2>
+          </div>
         </div>
 
-        <Card className="p-6 mb-6">
-          <h3 className="text-lg font-semibold mb-4">Hunt Details</h3>
+        <Card className="p-6 mb-6 bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30 border-2 border-amber-200/50 dark:border-amber-800/50">
+          <h3 className="text-lg font-semibold mb-4 text-amber-900 dark:text-amber-100">Hunt Details</h3>
           
           <div className="space-y-4">
             <div>
@@ -304,7 +307,7 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
 
         <div className="space-y-4 mb-6">
           {currentHunt.levels.map((level, index) => (
-            <Card key={level.id} className="p-6">
+            <Card key={level.id} className="p-6 bg-white/80 dark:bg-slate-900/80 border-2 border-amber-200/30 dark:border-amber-800/30 hover:border-amber-300 dark:hover:border-amber-700 transition-all">
               <div className="flex justify-between items-start mb-4">
                 <h4 className="font-semibold">Level {index + 1}</h4>
                 <Button 
@@ -377,7 +380,7 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
           <Button 
             onClick={saveHunt}
             disabled={!currentHunt.title || currentHunt.levels.length === 0}
-            className="game-button"
+            className="game-button bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white"
           >
             <Save className="h-4 w-4 mr-2" />
             Save Hunt
@@ -400,38 +403,48 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
   // Main Hunt Library View
   return (
     <div className="max-w-4xl mx-auto">
-      <div className="text-center mb-8">
-        <div className="text-6xl mb-6">🗺️</div>
-        <h2 className="text-3xl font-bold mb-4">Treasure Hunt Builder</h2>
-        <p className="text-muted-foreground text-lg mb-6">
-          Create and play custom treasure hunts with clues, puzzles, and hidden secrets!
-        </p>
-        
-        <Card className="p-6 mb-6 max-w-2xl mx-auto text-left">
-          <h3 className="text-lg font-bold mb-4 text-center">📖 How to Use Hunt Builder</h3>
-          <div className="space-y-3 text-sm text-muted-foreground">
-            <div><strong className="text-foreground">Create:</strong> Click "Create New Hunt" and add your title, description, and levels</div>
-            <div><strong className="text-foreground">Build Levels:</strong> Each level needs a clue/puzzle and an answer. Add hints and locations for extra guidance</div>
-            <div><strong className="text-foreground">Play:</strong> Select any saved hunt and solve the puzzles in order</div>
-            <div><strong className="text-foreground">Score:</strong> Earn 100 points per level (50 if you use a hint)</div>
-            <div><strong className="text-foreground">Complete:</strong> Finish all levels to get a 500 point bonus!</div>
-          </div>
-        </Card>
-        
-        <Button onClick={startNewHunt} className="game-button">
-          <Plus className="h-4 w-4 mr-2" />
-          Create New Hunt
-        </Button>
+      <div className="relative text-center mb-8">
+        <div className="absolute inset-0 bg-gradient-to-r from-amber-500/20 via-orange-500/20 to-yellow-500/20 rounded-3xl blur-3xl -z-10" />
+        <div className="relative bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30 rounded-2xl p-8 border-2 border-amber-300/50 dark:border-amber-700/50 shadow-xl">
+          <div className="text-6xl mb-6 animate-bounce">🗺️</div>
+          <h2 className="text-4xl font-bold mb-4 bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
+            Treasure Hunt Builder
+          </h2>
+          <p className="text-muted-foreground text-lg mb-6">
+            Create and play custom treasure hunts with clues, puzzles, and hidden secrets!
+          </p>
+          
+          <Card className="p-6 mb-6 max-w-2xl mx-auto text-left bg-white/80 dark:bg-slate-900/80 backdrop-blur-sm border-amber-200 dark:border-amber-800">
+            <h3 className="text-lg font-bold mb-4 text-center flex items-center justify-center gap-2">
+              <span className="text-2xl">📖</span> 
+              <span className="bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
+                How to Use Hunt Builder
+              </span>
+            </h3>
+            <div className="space-y-3 text-sm text-muted-foreground">
+              <div><strong className="text-amber-700 dark:text-amber-400">Create:</strong> Click "Create New Hunt" and add your title, description, and levels</div>
+              <div><strong className="text-amber-700 dark:text-amber-400">Build Levels:</strong> Each level needs a clue/puzzle and an answer. Add hints and locations for extra guidance</div>
+              <div><strong className="text-amber-700 dark:text-amber-400">Play:</strong> Select any saved hunt and solve the puzzles in order</div>
+              <div><strong className="text-amber-700 dark:text-amber-400">Score:</strong> Earn 100 points per level (50 if you use a hint)</div>
+              <div><strong className="text-amber-700 dark:text-amber-400">Complete:</strong> Finish all levels to get a 500 point bonus!</div>
+            </div>
+          </Card>
+          
+          <Button onClick={startNewHunt} className="game-button bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white shadow-lg shadow-amber-500/50 hover:shadow-xl hover:shadow-amber-500/60 transition-all duration-300 hover:scale-105">
+            <Plus className="h-4 w-4 mr-2" />
+            Create New Hunt
+          </Button>
+        </div>
       </div>
 
       {hunts.length === 0 ? (
-        <Card className="p-8 text-center">
+        <Card className="p-8 text-center bg-gradient-to-br from-amber-50/80 to-orange-50/80 dark:from-amber-950/50 dark:to-orange-950/50 border-2 border-dashed border-amber-300 dark:border-amber-700">
           <div className="text-4xl mb-4">📝</div>
-          <h3 className="text-xl font-semibold mb-2">No Hunts Yet</h3>
+          <h3 className="text-xl font-semibold mb-2 text-amber-900 dark:text-amber-100">No Hunts Yet</h3>
           <p className="text-muted-foreground mb-6">
             Start by creating your first treasure hunt! Add clues, puzzles, and challenges for others to solve.
           </p>
-          <Button onClick={startNewHunt} variant="outline">
+          <Button onClick={startNewHunt} className="bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white">
             <Plus className="h-4 w-4 mr-2" />
             Create Your First Hunt
           </Button>
@@ -439,16 +452,16 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
       ) : (
         <div className="grid grid-cols-1 md:grid-cols-2 gap-6">
           {hunts.map((hunt) => (
-            <Card key={hunt.id} className="game-card p-6">
+            <Card key={hunt.id} className="game-card p-6 bg-gradient-to-br from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30 border-2 border-amber-200/50 dark:border-amber-800/50 hover:border-amber-300 dark:hover:border-amber-700 hover:shadow-lg hover:shadow-amber-500/20 transition-all duration-300">
               <div className="mb-4">
                 <h3 className="text-xl font-bold mb-2">{hunt.title}</h3>
                 <p className="text-muted-foreground text-sm mb-3">{hunt.description}</p>
                 
                 <div className="flex gap-2 mb-4">
-                  <Badge variant="outline">
+                  <Badge className="bg-amber-100 text-amber-800 dark:bg-amber-900 dark:text-amber-200 border-amber-300 dark:border-amber-700">
                     {hunt.levels.length} levels
                   </Badge>
-                  <Badge variant="secondary">
+                  <Badge className="bg-orange-100 text-orange-800 dark:bg-orange-900 dark:text-orange-200 border-orange-300 dark:border-orange-700">
                     Created {hunt.createdAt.toLocaleDateString()}
                   </Badge>
                 </div>
@@ -457,7 +470,7 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
               <div className="flex gap-2">
                 <Button 
                   onClick={() => startPlayingHunt(hunt)}
-                  className="flex-1 game-button"
+                  className="flex-1 game-button bg-gradient-to-r from-amber-600 to-orange-600 hover:from-amber-700 hover:to-orange-700 text-white"
                   size="sm"
                 >
                   <Play className="h-4 w-4 mr-2" />
@@ -489,17 +502,22 @@ export const HuntBuilder = ({ onScoreUpdate }: HuntBuilderProps) => {
       )}
 
       <div className="mt-12 text-center">
-        <Card className="p-6">
-          <h3 className="text-lg font-semibold mb-4">💡 Hunt Creation Tips</h3>
+        <Card className="p-6 bg-gradient-to-r from-amber-50/50 to-orange-50/50 dark:from-amber-950/30 dark:to-orange-950/30 border-2 border-amber-200/50 dark:border-amber-800/50">
+          <h3 className="text-lg font-semibold mb-4 flex items-center justify-center gap-2">
+            <span className="text-2xl">💡</span>
+            <span className="bg-gradient-to-r from-amber-600 to-orange-600 dark:from-amber-400 dark:to-orange-400 bg-clip-text text-transparent">
+              Hunt Creation Tips
+            </span>
+          </h3>
           <div className="grid grid-cols-1 md:grid-cols-3 gap-4 text-sm text-muted-foreground">
             <div>
-              <strong>Make it challenging:</strong> Use riddles, wordplay, or require observation skills
+              <strong className="text-amber-700 dark:text-amber-400">Make it challenging:</strong> Use riddles, wordplay, or require observation skills
             </div>
             <div>
-              <strong>Add variety:</strong> Mix different types of clues - visual, logical, location-based
+              <strong className="text-amber-700 dark:text-amber-400">Add variety:</strong> Mix different types of clues - visual, logical, location-based
             </div>
             <div>
-              <strong>Test it first:</strong> Make sure all clues are solvable and answers are clear
+              <strong className="text-amber-700 dark:text-amber-400">Test it first:</strong> Make sure all clues are solvable and answers are clear
             </div>
           </div>
         </Card>
